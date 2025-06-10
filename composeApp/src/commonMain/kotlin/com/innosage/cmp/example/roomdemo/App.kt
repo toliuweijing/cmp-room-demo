@@ -19,7 +19,7 @@ import roomdemo.composeapp.generated.resources.Res
 import roomdemo.composeapp.generated.resources.compose_multiplatform
 
 @Composable
-@Preview
+//@Preview
 fun App() {
     MaterialTheme {
         var showContent by remember { mutableStateOf(false) }

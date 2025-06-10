@@ -19,37 +19,48 @@ kotlin {
             }
         }
     }
-    iosX64()
-    iosArm64()
-    iosSimulatorArm64()
+
+    listOf(
+        iosX64(),
+        iosArm64(),
+        iosSimulatorArm64()
+    ).forEach { iosTarget ->
+        iosTarget.binaries.framework {
+            baseName = "ComposeApp"
+            isStatic = true
+        }
+    }
 
     sourceSets {
         // Define versions
         val coroutinesVersion = "1.8.0"
-        val ktorVersion = "2.3.10"
+        val ktorVersion = "3.1.2"
         val roomVersion = "2.7.1"
         val pagingVersion = "3.3.0"
-        val lifecycleVersion = "2.8.0"
+        val lifecycleVersion = "2.8.4"
         val navVersion = "2.7.7"
-        val serializationVersion = "1.6.3"
 
         commonMain.dependencies {
+//            implementation(compose.resources)
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
             implementation(compose.ui)
+            implementation(compose.components.resources)
+            implementation(compose.components.uiToolingPreview)
 
             // Paging
+            implementation("androidx.paging:paging-compose:$pagingVersion")
             implementation("androidx.paging:paging-common:$pagingVersion")
 
             // Room
-            implementation("androidx.room:room-runtime:$roomVersion")
+            implementation("androidx.room:room-paging:${roomVersion}")
             implementation("androidx.room:room-ktx:$roomVersion")
 
             // Ktor
             implementation("io.ktor:ktor-client-core:$ktorVersion")
             implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
-            implementation("io.ktor:ktor-serialization-kotlinx-json:$serializationVersion")
+            implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
 
             // Coroutines & Lifecycle
             implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutinesVersion")
