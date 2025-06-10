@@ -1,4 +1,4 @@
-package org.example.project
+package com.innosage.cmp.example.roomdemo
 
 import android.app.Application
 import org.example.project.data.local.androidModule
