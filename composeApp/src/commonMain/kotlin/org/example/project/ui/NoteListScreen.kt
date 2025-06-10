@@ -11,9 +11,10 @@ import androidx.paging.LoadState
 import androidx.paging.compose.collectAsLazyPagingItems
 import androidx.paging.compose.itemKey
 import org.example.project.domain.model.Note
+import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
-fun NoteListScreen(viewModel: NoteListViewModel) {
+fun NoteListScreen(viewModel: NoteListViewModel = koinViewModel()) {
     val lazyPagingItems = viewModel.notes.collectAsLazyPagingItems()
 
     Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {

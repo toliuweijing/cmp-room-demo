@@ -39,9 +39,14 @@ kotlin {
         val pagingVersion = "3.3.0"
         val lifecycleVersion = "2.8.4"
         val navVersion = "2.7.7"
+        val koinVersion = "3.5.6" // Use the latest version
 
         commonMain.dependencies {
 //            implementation(compose.resources)
+            implementation(libs.koin.core)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.compose.viewmodel)
+            implementation(libs.koin.compose.viewmodel.navigation)
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
@@ -73,6 +78,7 @@ kotlin {
         }
 
         androidMain.dependencies {
+            implementation(libs.koin.android)
             implementation(libs.androidx.appcompat)
             implementation(libs.androidx.activity.compose)
             implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
