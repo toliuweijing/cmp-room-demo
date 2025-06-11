@@ -54,8 +54,11 @@ kotlin {
             implementation(compose.components.uiToolingPreview)
 
             // Paging
-            implementation("androidx.paging:paging-compose:$pagingVersion")
-            implementation("androidx.paging:paging-common:$pagingVersion")
+            implementation("app.cash.paging:paging-common:3.3.0-alpha02-0.5.1")
+            implementation("app.cash.paging:paging-compose-common:3.3.0-alpha02-0.5.1")
+
+//            implementation("androidx.paging:paging-compose:$pagingVersion")
+//            implementation("androidx.paging:paging-common:$pagingVersion")
 
             // Room
             implementation("androidx.room:room-paging:${roomVersion}")
@@ -81,6 +84,9 @@ kotlin {
             implementation(libs.androidx.appcompat)
             implementation(libs.androidx.activity.compose)
             implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
+            implementation("androidx.paging:paging-runtime:3.3.0-alpha02")
+            implementation("androidx.paging:paging-compose:3.3.0-alpha02")
+//            implementation("androidx.paging:paging-rxjava3:3.3.0-alpha02")
         }
 
         iosMain.dependencies {
