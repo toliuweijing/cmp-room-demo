@@ -1,33 +1,18 @@
 package com.innosage.cmp.example.roomdemo
 
-import androidx.compose.animation.AnimatedVisibility
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.safeContentPadding
-import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import org.example.project.ui.NoteListScreen
-import org.example.project.ui.NoteListViewModel
-import org.jetbrains.compose.resources.painterResource
-import org.jetbrains.compose.ui.tooling.preview.Preview
+import com.innosage.cmp.example.roomdemo.ui.NoteListScreen
+import com.innosage.cmp.example.roomdemo.ui.NoteListViewModel
 import org.koin.compose.KoinContext
 import org.koin.compose.viewmodel.koinViewModel
-
-import roomdemo.composeapp.generated.resources.Res
-import roomdemo.composeapp.generated.resources.compose_multiplatform
 
 @Composable
 fun App() {
     KoinContext {
         MaterialTheme {
-            val viewModel: NoteListViewModel = koinViewModel()
-//            NoteListScreen()
+//            val viewModel: NoteListViewModel = koinViewModel()
+            NoteListScreen()
         }
     }
 }
