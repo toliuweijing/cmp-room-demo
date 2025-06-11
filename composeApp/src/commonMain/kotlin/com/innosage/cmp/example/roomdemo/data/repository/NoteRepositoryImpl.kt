@@ -48,10 +48,10 @@ class NoteRepositoryImpl(
 
         return Pager(
             config = PagingConfig(
-                pageSize = 5,
+                pageSize = 10,
                 enablePlaceholders = false,
                 prefetchDistance = 1,
-                initialLoadSize = 5,
+                initialLoadSize = 10,
             ),
             remoteMediator = NoteRemoteMediator(database, apiService),
             pagingSourceFactory = pagingSourceFactory

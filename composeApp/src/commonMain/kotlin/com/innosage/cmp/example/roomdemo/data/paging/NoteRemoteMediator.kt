@@ -56,6 +56,7 @@ class NoteRemoteMediator(
                 }
             }
 
+            println("lweijing - page $page, loadType $loadType")
             val response = apiService.getNotes(page = page, pageSize = state.config.pageSize)
             val endOfPaginationReached = response.isEmpty()
 
