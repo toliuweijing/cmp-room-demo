@@ -57,12 +57,11 @@ kotlin {
             implementation("app.cash.paging:paging-common:3.3.0-alpha02-0.5.1")
             implementation("app.cash.paging:paging-compose-common:3.3.0-alpha02-0.5.1")
 
-//            implementation("androidx.paging:paging-compose:$pagingVersion")
-//            implementation("androidx.paging:paging-common:$pagingVersion")
-
             // Room
             implementation("androidx.room:room-paging:${roomVersion}")
             implementation("androidx.room:room-ktx:$roomVersion")
+            implementation("androidx.room:room-runtime:$roomVersion")
+//            kapt("androidx.room:room-compiler:2.7.1")
 
             // Ktor
             implementation("io.ktor:ktor-client-core:$ktorVersion")
@@ -86,7 +85,6 @@ kotlin {
             implementation("io.ktor:ktor-client-okhttp:$ktorVersion")
             implementation("androidx.paging:paging-runtime:3.3.0-alpha02")
             implementation("androidx.paging:paging-compose:3.3.0-alpha02")
-//            implementation("androidx.paging:paging-rxjava3:3.3.0-alpha02")
         }
 
         iosMain.dependencies {
@@ -129,6 +127,7 @@ room {
 
 // KSP Dependencies
 dependencies {
+//    kapt("androidx.room:room-compiler:2.7.1")
     add("kspCommonMainMetadata", "androidx.room:room-compiler:2.7.1")
     add("kspAndroid", "androidx.room:room-compiler:2.7.1")
     add("kspIosX64", "androidx.room:room-compiler:2.7.1")

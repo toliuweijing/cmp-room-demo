@@ -33,7 +33,7 @@ class NoteRemoteMediator(
             val response = apiService.getNotes(page = page, pageSize = state.config.pageSize)
             val endOfPaginationReached = response.isEmpty()
 
-            database.withTransaction {
+            database.withTransaction2 {
                 if (loadType == LoadType.REFRESH) {
                     noteDao.clearAllNotes()
                     noteDao.clearAllRemoteKeys()
