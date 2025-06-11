@@ -1,7 +1,7 @@
 package org.example.project.di
 
+import org.example.project.data.local.DatabaseDriverFactory
 import org.example.project.data.local.NotesDatabase
-import org.example.project.data.local.createRoomDatabase
 import org.example.project.data.remote.api.NoteApiService
 import org.example.project.data.repository.NoteRepositoryImpl
 import org.example.project.domain.repository.NoteRepository
@@ -11,7 +11,7 @@ import org.koin.dsl.module
 
 val appModule = module {
     single<NotesDatabase> {
-        createRoomDatabase().build()
+        get<DatabaseDriverFactory>().createDriver().build()
     }
 
     factory { get<NotesDatabase>().noteDao() }

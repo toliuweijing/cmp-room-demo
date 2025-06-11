@@ -1,9 +1,16 @@
 package org.example.project.data.local
 
+import android.content.Context
+import androidx.room.Room
 import androidx.room.RoomDatabase
+import org.koin.core.context.GlobalContext
 
-actual class DatabaseDriverFactory {
+actual class DatabaseDriverFactory(private val context: Context) {
     actual fun createDriver(): RoomDatabase.Builder<NotesDatabase> {
-        TODO("Not yet implemented")
+        val dbFile = context.getDatabasePath("notes.db")
+        return Room.databaseBuilder<NotesDatabase>(
+            context = context.applicationContext,
+            name = dbFile.absolutePath
+        )
     }
 }

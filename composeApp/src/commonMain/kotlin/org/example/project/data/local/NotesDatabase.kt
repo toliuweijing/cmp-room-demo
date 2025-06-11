@@ -8,4 +8,4 @@ abstract class NotesDatabase : RoomDatabase() {
     abstract fun noteDao(): NoteDao
 }
 
-expect fun createRoomDatabase(): RoomDatabase.Builder<NotesDatabase>
+//expect fun createRoomDatabase(): RoomDatabase.Builder<NotesDatabase>

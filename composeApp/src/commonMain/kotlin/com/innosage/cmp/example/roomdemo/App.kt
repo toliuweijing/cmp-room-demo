@@ -13,18 +13,21 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import org.example.project.ui.NoteListScreen
+import org.example.project.ui.NoteListViewModel
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.ui.tooling.preview.Preview
 import org.koin.compose.KoinContext
+import org.koin.compose.viewmodel.koinViewModel
 
 import roomdemo.composeapp.generated.resources.Res
 import roomdemo.composeapp.generated.resources.compose_multiplatform
 
 @Composable
 fun App() {
-//    KoinContext {
+    KoinContext {
         MaterialTheme {
+            val viewModel: NoteListViewModel = koinViewModel()
 //            NoteListScreen()
         }
-//    }
+    }
 }

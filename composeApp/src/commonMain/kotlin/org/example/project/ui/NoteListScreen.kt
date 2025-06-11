@@ -15,37 +15,37 @@ import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun NoteListScreen(viewModel: NoteListViewModel = koinViewModel()) {
-    val lazyPagingItems = viewModel.notes.collectAsLazyPagingItems()
-
-    Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-        LazyColumn(
-            modifier = Modifier.fillMaxSize(),
-            contentPadding = PaddingValues(16.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
-            items(
-                count = lazyPagingItems.itemCount,
-                key = lazyPagingItems.itemKey { it.id }
-            ) { index ->
-                val note = lazyPagingItems[index]
-                if (note != null) {
-                    NoteItem(note)
-                }
-            }
-
-            when (val refreshState = lazyPagingItems.loadState.refresh) {
-                is LoadState.Loading -> item { FullScreenLoading() }
-                is LoadState.Error -> item { ErrorItem("Error refreshing: ${refreshState.error.message}") }
-                else -> {}
-            }
-
-            when (val appendState = lazyPagingItems.loadState.append) {
-                is LoadState.Loading -> item { CenteredLoadingIndicator() }
-                is LoadState.Error -> item { ErrorItem("Error appending: ${appendState.error.message}") }
-                else -> {}
-            }
-        }
-    }
+//    val lazyPagingItems = viewModel.notes.collectAsLazyPagingItems()
+//
+//    Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
+//        LazyColumn(
+//            modifier = Modifier.fillMaxSize(),
+//            contentPadding = PaddingValues(16.dp),
+//            verticalArrangement = Arrangement.spacedBy(12.dp)
+//        ) {
+//            items(
+//                count = lazyPagingItems.itemCount,
+//                key = lazyPagingItems.itemKey { it.id }
+//            ) { index ->
+//                val note = lazyPagingItems[index]
+//                if (note != null) {
+//                    NoteItem(note)
+//                }
+//            }
+//
+//            when (val refreshState = lazyPagingItems.loadState.refresh) {
+//                is LoadState.Loading -> item { FullScreenLoading() }
+//                is LoadState.Error -> item { ErrorItem("Error refreshing: ${refreshState.error.message}") }
+//                else -> {}
+//            }
+//
+//            when (val appendState = lazyPagingItems.loadState.append) {
+//                is LoadState.Loading -> item { CenteredLoadingIndicator() }
+//                is LoadState.Error -> item { ErrorItem("Error appending: ${appendState.error.message}") }
+//                else -> {}
+//            }
+//        }
+//    }
 }
 
 @Composable
