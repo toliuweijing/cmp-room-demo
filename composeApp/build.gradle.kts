@@ -42,7 +42,6 @@ kotlin {
         val koinVersion = "3.5.6" // Use the latest version
 
         commonMain.dependencies {
-//            implementation(compose.resources)
             implementation(libs.koin.core)
             implementation(libs.koin.compose)
             implementation(libs.koin.compose.viewmodel)

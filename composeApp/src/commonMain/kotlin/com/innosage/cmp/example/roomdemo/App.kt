@@ -11,7 +11,6 @@ import org.koin.compose.viewmodel.koinViewModel
 fun App() {
     KoinContext {
         MaterialTheme {
-//            val viewModel: NoteListViewModel = koinViewModel()
             NoteListScreen()
         }
     }
